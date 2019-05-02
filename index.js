@@ -49,7 +49,7 @@ DynamoStore.prototype.get = function (key, callback) {
             } else {
                 var brutedata;
                 if (doc.Item && doc.Item.expires.N < new Date().getTime()) {
-                    db.deleteItem({
+                    this.db.deleteItem({
                         Key: {
                             "storeKey": {"S": storeKey}
                         },
